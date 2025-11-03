@@ -581,6 +581,39 @@ export default function Portfolio() {
                     </Card>
                   </a>
                 </CarouselItem>
+
+                {/* Recipe Search App */}
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <a
+                    href="https://recipe-search-q800.onrender.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group block"
+                    aria-label="Recipe Search — add ingredients and search cuisines"
+                  >
+                    <Card className="h-full overflow-hidden border-0 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
+                      <div className="h-36 bg-gradient-to-r from-amber-500 to-orange-600 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-2xl text-gray-900 dark:text-gray-100">Recipe Search</CardTitle>
+                        <CardDescription className="mt-1 text-gray-600 dark:text-gray-400">Add ingredients and find favorite cuisines</CardDescription>
+                      </CardHeader>
+                      <CardContent className="pt-4">
+                        <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                          <li>Enter one or more ingredients to refine results.</li>
+                          <li>Search and filter recipes by keywords/cuisines.</li>
+                          <li>Clean, focused UI for quick discovery.</li>
+                        </ul>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {["JavaScript", "CSS","React", "Redux", "REST APIs", "Node.js", "Web App"].map((t) => (
+                            <Badge key={t} variant="secondary" className="bg-amber-50 text-amber-700">
+                              {t}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
+                </CarouselItem>
               </CarouselContent>
               <CarouselPrevious className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border" />
               <CarouselNext className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border" />
