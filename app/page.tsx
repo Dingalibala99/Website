@@ -298,7 +298,7 @@ export default function Portfolio() {
                   </ul>
                   <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      <strong>Reference:</strong> Naomi@bbdsoftware.com | 073 158 2450
+                      <strong>Reference:</strong> bongiwek@bbdsoftware.com | 061 471 2643
                     </p>
                   </div>
                 </CardContent>
@@ -337,7 +337,7 @@ export default function Portfolio() {
                   </ul>
                   <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      <strong>Reference:</strong> muzi.mkhonto@umuzi.org | 084 411 8584
+                      <strong>Reference:</strong> muzi.maphophe@umuzi.org | 084 411 8584
                     </p>
                   </div>
                 </CardContent>
@@ -372,7 +372,7 @@ export default function Portfolio() {
                   </ul>
                   <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      <strong>Reference:</strong> lisa.mabe@umuzi.org | 067 696 2462
+                      <strong>Reference:</strong> lisamabe631@gmail.com | 067 696 2462
                     </p>
                   </div>
                 </CardContent>
