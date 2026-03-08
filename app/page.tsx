@@ -31,7 +31,6 @@ import { ContactForm } from "@/components/ContactForm"
 import { ServiceCard } from "@/components/ServiceCard"
 import { FloatingCTA } from "@/components/FloatingCTA"
 import { ProcessStep } from "@/components/ProcessStep"
-import Image from "next/image"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -367,13 +366,10 @@ export default function Portfolio() {
 
               <div className="space-y-8">
                 <div className="relative rounded-lg overflow-hidden shadow-xl">
-                  <Image
+                  <img
                     src="/Mdu.jpg"
                     alt="Professional photo - Makadunyiswe Dingalibala"
-                    width={400}
-                    height={500}
                     className="w-full object-cover rounded-lg"
-                    priority
                   />
                   <div className="absolute bottom-4 right-4 px-4 py-2 bg-emerald-600 text-white rounded-full text-sm font-semibold">
                     Available for new projects
@@ -467,11 +463,11 @@ export default function Portfolio() {
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
-                        <Image
+                        <img
                           src="/logo.png"
                           alt="Onfon Mobile logo"
-                          width={56}
-                          height={56}
+                          width="56"
+                          height="56"
                           className="object-contain"
                         />
                       </div>
@@ -521,11 +517,11 @@ export default function Portfolio() {
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
-                        <Image
+                        <img
                           src="/bbd.png"
                           alt="BBD Software logo"
-                          width={56}
-                          height={56}
+                          width="56"
+                          height="56"
                           className="object-contain"
                         />
                       </div>
@@ -575,11 +571,11 @@ export default function Portfolio() {
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
-                        <Image
+                        <img
                           src="/umuzi.webp"
                           alt="Umuzi logo"
-                          width={56}
-                          height={56}
+                          width="56"
+                          height="56"
                           className="object-contain"
                         />
                       </div>
@@ -625,11 +621,11 @@ export default function Portfolio() {
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
-                        <Image
+                        <img
                           src="/umuzi.webp"
                           alt="Umuzi logo"
-                          width={56}
-                          height={56}
+                          width="56"
+                          height="56"
                           className="object-contain"
                         />
                       </div>
