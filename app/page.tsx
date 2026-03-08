@@ -4,9 +4,34 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Phone, Mail, Linkedin, Github, User, Download, Menu, X, ChevronDown, Star, Calendar } from "lucide-react"
+import {
+  Phone,
+  Mail,
+  Linkedin,
+  Github,
+  User,
+  Download,
+  Menu,
+  X,
+  ChevronDown,
+  Star,
+  Calendar,
+  Globe,
+  Zap,
+  Code,
+  Briefcase,
+  CheckCircle,
+  Users,
+  TrendingUp,
+} from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { ContactForm } from "@/components/ContactForm"
+import { ServiceCard } from "@/components/ServiceCard"
+import { FloatingCTA } from "@/components/FloatingCTA"
+import { ProcessStep } from "@/components/ProcessStep"
+import Image from "next/image"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -79,14 +104,14 @@ export default function Portfolio() {
             </motion.div>
 
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "experience", "projects", "contact"].map((item) => (
+              {["home", "services", "about", "how-it-works", "experience", "projects", "contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className={`capitalize transition-colors duration-200 hover:text-emerald-600 ${activeSection === item ? "text-emerald-600 font-medium" : "text-gray-700 dark:text-gray-300"
                     }`}
                 >
-                  {item}
+                  {item === "how-it-works" ? "How It Works" : item}
                 </button>
               ))}
             </div>
@@ -106,13 +131,13 @@ export default function Portfolio() {
               className="md:hidden bg-white dark:bg-gray-900 border-t"
             >
               <div className="px-4 py-2 space-y-2">
-                {["home", "about", "experience", "projects", "contact"].map((item) => (
+                {["home", "services", "about", "how-it-works", "experience", "projects", "contact"].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item)}
                     className="block w-full text-left px-4 py-2 capitalize hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
                   >
-                    {item}
+                    {item === "how-it-works" ? "How It Works" : item}
                   </button>
                 ))}
               </div>
@@ -127,29 +152,29 @@ export default function Portfolio() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                Makadunyiswe
+                Web Solutions That
               </span>
               <br />
-              <span className="text-gray-800 dark:text-gray-200">Dingalibala</span>
+              <span className="text-gray-800 dark:text-gray-200">Drive Real Business Growth</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
-              Software Engineer crafting robust, user-centered digital products with passion and precision
+              Professional websites and custom software built specifically for small businesses. Affordable. Reliable. Results-focused.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
                 size="lg"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("contact")}
               >
-                View My Work
+                Get Free Consultation
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 bg-transparent"
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("projects")}
               >
-                Get In Touch
+                View My Work
               </Button>
             </div>
 
@@ -191,6 +216,75 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
+      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200">
+              Solutions Built for Small Business Success
+            </h2>
+            <p className="text-center text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+              Affordable, professional web development and software solutions tailored to help you grow your business.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <ServiceCard
+                icon={Globe}
+                title="Website Design"
+                description="Professional, modern websites that attract and convert visitors."
+                features={[
+                  "Mobile-responsive design",
+                  "Fast loading speeds",
+                  "SEO optimized",
+                  "Easy to update",
+                ]}
+                onCTA={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              />
+              <ServiceCard
+                icon={TrendingUp}
+                title="E-commerce Solutions"
+                description="Sell online with secure, user-friendly shopping experiences."
+                features={[
+                  "Product management",
+                  "Secure payments",
+                  "Inventory tracking",
+                  "Customer analytics",
+                ]}
+                onCTA={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              />
+              <ServiceCard
+                icon={Code}
+                title="Custom Web Apps"
+                description="Tailored software to streamline your business operations."
+                features={[
+                  "Task management",
+                  "Data organization",
+                  "User-friendly interface",
+                  "Scalable design",
+                ]}
+                onCTA={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              />
+              <ServiceCard
+                icon={Zap}
+                title="Website Optimization"
+                description="Boost leads and sales from your existing website."
+                features={[
+                  "Performance tuning",
+                  "Lead capture forms",
+                  "Analytics setup",
+                  "Conversion optimization",
+                ]}
+                onCTA={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section id="about" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -199,24 +293,93 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-center mb-16 text-gray-800 dark:text-gray-200">About Me</h2>
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200">Why Work With Me</h2>
+            <p className="text-center text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+              I help small business owners build websites and software that actually work for their business.
+            </p>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <Card className="p-8 shadow-lg border-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+              <div className="space-y-6">
+                <Card className="p-6 shadow-lg border-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
                   <CardContent className="p-0">
-                    <div className="flex items-center mb-6">
-                      <User className="text-emerald-600 mr-3" size={28} />
-                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">Professional Summary</h3>
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="text-emerald-600 flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                          Affordable & Professional
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          High-quality websites and solutions at prices that make sense for small businesses.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-                      Motivated and detail-oriented software developer with hands-on experience in maintaining and enhancing internal systems. Skilled in both front-end and back-end development, with a strong foundation in TypeScript, JavaScript, SQL, and frameworks like Lit-HTML and Express.js. Proven ability to contribute to feature development, bug fixing, and system optimization within cross-functional teams. Passionate about creating user-friendly, scalable solutions and improving the overall user experience through thoughtful design and gamification strategies. Adept at working in collaborative environments and committed to writing clean, maintainable code.
-                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="p-6 shadow-lg border-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+                  <CardContent className="p-0">
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="text-emerald-600 flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                          Fast Communication
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          I'm responsive and easy to reach. Most inquiries get a response within 24 hours.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="p-6 shadow-lg border-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+                  <CardContent className="p-0">
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="text-emerald-600 flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                          Results-Focused
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          I focus on solutions that generate leads, increase sales, and improve your bottom line.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="p-6 shadow-lg border-0 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20">
+                  <CardContent className="p-0">
+                    <div className="flex items-start gap-4">
+                      <CheckCircle className="text-emerald-600 flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                          Ongoing Support
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          I don't disappear after launch. I'm here to help maintain and improve your investment.
+                        </p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
 
               <div className="space-y-8">
+                <div className="relative rounded-lg overflow-hidden shadow-xl">
+                  <Image
+                    src="/Mdu.jpg"
+                    alt="Professional photo - Makadunyiswe Dingalibala"
+                    width={400}
+                    height={500}
+                    className="w-full object-cover rounded-lg"
+                    priority
+                  />
+                  <div className="absolute bottom-4 right-4 px-4 py-2 bg-emerald-600 text-white rounded-full text-sm font-semibold">
+                    Available for new projects
+                  </div>
+                </div>
+
                 <div>
                   <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Technical Skills</h3>
                   <div className="flex flex-wrap gap-2">
@@ -231,24 +394,62 @@ export default function Portfolio() {
                     ))}
                   </div>
                 </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Soft Skills</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {softSkills.map((skill, index) => (
-                      <Badge key={index} variant="outline" className="border-teal-300 text-teal-700 hover:bg-teal-50">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="how-it-works" className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200">How It Works</h2>
+            <p className="text-center text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+              A simple, transparent process from initial consultation to launch and beyond.
+            </p>
+
+            <div className="space-y-12 max-w-3xl mx-auto">
+              <ProcessStep
+                number={1}
+                title="Discovery & Planning"
+                description="We discuss your goals, challenges, and vision. I understand your business, target audience, and what success looks like for you."
+                duration="1-2 weeks"
+              />
+              <ProcessStep
+                number={2}
+                title="Design & Proposal"
+                description="I create a design mockup showing how your website or app will look and function, along with a clear proposal and timeline."
+                duration="2-3 weeks"
+              />
+              <ProcessStep
+                number={3}
+                title="Development"
+                description="I build your solution with clean, professional code. You'll see regular updates and can provide feedback throughout."
+                duration="4-8 weeks"
+              />
+              <ProcessStep
+                number={4}
+                title="Testing & Refinement"
+                description="We test everything thoroughly on all devices. I make any adjustments and ensure everything works perfectly."
+                duration="1-2 weeks"
+              />
+              <ProcessStep
+                number={5}
+                title="Launch & Support"
+                description="Your solution goes live. I provide training, documentation, and ongoing support to ensure your success."
+                duration="Ongoing"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="experience" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -262,11 +463,76 @@ export default function Portfolio() {
 
             <div className="space-y-8">
               <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardHeader className="bg-gradient-to-r from-rose-500 to-purple-600 text-white">
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+                        <Image
+                          src="/logo.png"
+                          alt="Onfon Mobile logo"
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl">Software Engineer</CardTitle>
+                        <CardDescription className="text-rose-100">Onfon Mobile</CardDescription>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="flex items-center text-rose-100 mb-1">
+                        <Calendar size={16} className="mr-2" />
+                        November 2025 - Present
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 font-medium">Current Role</p>
+                  <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <Star className="text-rose-500 mr-2 mt-1 flex-shrink-0" size={16} />
+                      Maintain and optimize existing applications for performance and reliability
+                    </li>
+                    <li className="flex items-start">
+                      <Star className="text-rose-500 mr-2 mt-1 flex-shrink-0" size={16} />
+                      Create new features and functionalities to meet business requirements
+                    </li>
+                    <li className="flex items-start">
+                      <Star className="text-rose-500 mr-2 mt-1 flex-shrink-0" size={16} />
+                      Enhance applications with modern adaptations and cutting-edge technologies
+                    </li>
+                    <li className="flex items-start">
+                      <Star className="text-rose-500 mr-2 mt-1 flex-shrink-0" size={16} />
+                      Develop innovative solutions to increase company productivity and efficiency
+                    </li>
+                  </ul>
+                  <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <strong>Supervisor:</strong> Shayur Misra | smisra@onfonmobile.co.za
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-2xl">Intern</CardTitle>
-                      <CardDescription className="text-emerald-100">BBD Software</CardDescription>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+                        <Image
+                          src="/bbd.png"
+                          alt="BBD Software logo"
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl">Intern</CardTitle>
+                        <CardDescription className="text-emerald-100">BBD Software</CardDescription>
+                      </div>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-emerald-100 mb-1">
@@ -306,10 +572,21 @@ export default function Portfolio() {
 
               <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-2xl">Junior Tech Lead</CardTitle>
-                      <CardDescription className="text-teal-100">Umuzi</CardDescription>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+                        <Image
+                          src="/umuzi.webp"
+                          alt="Umuzi logo"
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl">Junior Tech Lead</CardTitle>
+                        <CardDescription className="text-teal-100">Umuzi</CardDescription>
+                      </div>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-teal-100 mb-1">
@@ -345,10 +622,21 @@ export default function Portfolio() {
 
               <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-2xl">Learnership</CardTitle>
-                      <CardDescription className="text-cyan-100">Umuzi</CardDescription>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+                        <Image
+                          src="/umuzi.webp"
+                          alt="Umuzi logo"
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl">Learnership</CardTitle>
+                        <CardDescription className="text-cyan-100">Umuzi</CardDescription>
+                      </div>
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-cyan-100 mb-1">
@@ -382,7 +670,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+      <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -622,67 +910,198 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section id="faq" className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-8">Let's Work Together</h2>
-            <p className="text-xl mb-12 max-w-2xl mx-auto opacity-90">
-              Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing
-              teams.
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-800 dark:text-gray-200">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-center text-gray-600 dark:text-gray-400 text-lg mb-12">
+              Have questions? I've answered the most common ones below.
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <a
-                href="tel:+27719683272"
-                className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-              >
-                <Phone size={20} />
-                <span>+27 71 968 3272</span>
-              </a>
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=makadunyiswed@gmail.com"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-              >
-                <Mail size={20} />
-                <span>Email Me</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/makadunyiswe-dingalibala-686a56299/"
-                target="_blank"
-                className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                rel="noreferrer"
-              >
-                <Linkedin size={20} />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/Dingalibala99"
-                target="_blank"
-                className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
-                rel="noreferrer"
-              >
-                <Github size={20} />
-                <span>GitHub</span>
-              </a>
-            </div>
+            <Accordion type="single" collapsible className="w-full space-y-3">
+              <AccordionItem value="item-1" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  How much does a website cost?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  Website costs depend on complexity. Simple websites start around R45,000-R95,000, while more complex
+                  solutions range from R180,000-R475,000+. I provide custom quotes after understanding your needs. We can
+                  discuss flexible payment plans.
+                </AccordionContent>
+              </AccordionItem>
 
-            <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3" asChild>
-              <a
-                href="https://drive.google.com/file/d/19p-JCFxCi0Hr0Vy_YgfUXxeOF_v1LHRo/view?usp=drive_link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Download className="mr-2" size={20} />
-                Download Full CV
-              </a>
-            </Button>
+              <AccordionItem value="item-2" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  How long does a project take?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  Most projects take 6-12 weeks from start to launch. This includes discovery, design, development,
+                  testing, and refinement. Simple websites might be faster, while complex custom apps take longer.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  Do I own the website/application?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  Yes, 100%. You own all the code, content, and design. I provide you with all files and can help
+                  transfer hosting/domains to your preferred provider.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  What about maintenance and updates?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  I offer maintenance packages starting at R3,600-R9,500/month depending on your needs. This includes updates,
+                  backups, security, and technical support.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  How do you ensure the website generates results?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  I focus on user experience, mobile optimization, fast loading speeds, and clear calls-to-action. I also
+                  set up analytics so you can track performance and we can continuously improve.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  Do you work with small budgets?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  Yes! I understand small business budgets. We can customize your project scope to fit your budget or
+                  break the work into phases. Let's talk about what's possible for you.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-7" className="border border-gray-200 dark:border-gray-700 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600">
+                  What if I'm not happy with the result?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 dark:text-gray-400">
+                  Your satisfaction is my priority. I include multiple rounds of revisions during development. If you're
+                  not happy with the final result, we'll work together to make it right.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-4 text-white">Ready to Start Your Project?</h2>
+            <p className="text-xl mb-12 text-emerald-50 max-w-2xl">
+              Let's discuss your project, goals, and how I can help your business grow. Fill out the form below or give
+              me a call.
+            </p>
+
+            <div className="grid lg:grid-cols-2 gap-12">
+              <ContactForm />
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-bold mb-6 text-white">Quick Contact</h3>
+
+                  <div className="space-y-4">
+                    <a
+                      href="tel:+27719683272"
+                      className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
+                    >
+                      <Phone className="text-white group-hover:scale-110 transition-transform" size={24} />
+                      <div>
+                        <p className="text-sm text-emerald-100">Phone</p>
+                        <p className="text-white font-semibold">+27 71 968 3272</p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=makadunyiswed@gmail.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
+                    >
+                      <Mail className="text-white group-hover:scale-110 transition-transform" size={24} />
+                      <div>
+                        <p className="text-sm text-emerald-100">Email</p>
+                        <p className="text-white font-semibold">makadunyiswed@gmail.com</p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://www.linkedin.com/in/makadunyiswe-dingalibala-686a56299/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
+                    >
+                      <Linkedin className="text-white group-hover:scale-110 transition-transform" size={24} />
+                      <div>
+                        <p className="text-sm text-emerald-100">LinkedIn</p>
+                        <p className="text-white font-semibold">Connect with me</p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="https://github.com/Dingalibala99"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
+                    >
+                      <Github className="text-white group-hover:scale-110 transition-transform" size={24} />
+                      <div>
+                        <p className="text-sm text-emerald-100">GitHub</p>
+                        <p className="text-white font-semibold">View my code</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h4 className="font-bold text-white mb-3 flex items-center gap-2">
+                    <CheckCircle size={20} />
+                    Why Choose Me
+                  </h4>
+                  <ul className="space-y-2 text-emerald-50 text-sm">
+                    <li>✓ 3+ years of development experience</li>
+                    <li>✓ 7+ completed professional projects</li>
+                    <li>✓ Fast, reliable communication</li>
+                    <li>✓ Full-stack capabilities</li>
+                    <li>✓ 24-hour response guarantee</li>
+                    <li>✓ Available for immediate projects</li>
+                  </ul>
+                </div>
+
+                <Button size="lg" className="w-full bg-white text-emerald-600 hover:bg-gray-100 font-semibold" asChild>
+                  <a
+                    href="https://drive.google.com/file/d/19p-JCFxCi0Hr0Vy_YgfUXxeOF_v1LHRo/view?usp=drive_link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Download className="mr-2" size={20} />
+                    Download My CV
+                  </a>
+                </Button>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -692,6 +1111,8 @@ export default function Portfolio() {
           <p className="text-gray-400">© 2025 Makadunyiswe Dingalibala. Crafted with passion and precision.</p>
         </div>
       </footer>
+
+      <FloatingCTA onCtaClick={() => scrollToSection("contact")} />
     </div>
   )
 }
