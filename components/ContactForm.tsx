@@ -208,21 +208,9 @@ export function ContactForm() {
           className="w-full bg-white/10 border border-white/20 text-white rounded-md px-3 py-2 focus:outline-none focus:border-white/30 text-sm"
         >
           <option value="" className="text-gray-900">
-            Select your budget range
+            Select your budget preference
           </option>
-          <option value="R18,000 - R95,000" className="text-gray-900">
-            R18,000 - R95,000
-          </option>
-          <option value="R95,000 - R190,000" className="text-gray-900">
-            R95,000 - R190,000
-          </option>
-          <option value="R190,000 - R475,000" className="text-gray-900">
-            R190,000 - R475,000
-          </option>
-          <option value="R475,000+" className="text-gray-900">
-            R475,000+
-          </option>
-          <option value="Flexible" className="text-gray-900">
+          <option value="Flexible / Let's Discuss" className="text-gray-900">
             Flexible / Let's Discuss
           </option>
         </select>
