@@ -367,7 +367,7 @@ export default function Portfolio() {
               <div className="space-y-8">
                 <div className="relative rounded-lg overflow-hidden shadow-xl">
                   <img
-                    src="/Mdu.jpg"
+                    src="Mdu.jpg"
                     alt="Professional photo - Makadunyiswe Dingalibala"
                     className="w-full object-cover rounded-lg"
                   />
@@ -464,7 +464,7 @@ export default function Portfolio() {
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/logo.png"
+                          src="logo.png"
                           alt="Onfon Mobile logo"
                           width="56"
                           height="56"
@@ -518,7 +518,7 @@ export default function Portfolio() {
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/bbd.png"
+                          src="bbd.png"
                           alt="BBD Software logo"
                           width="56"
                           height="56"
@@ -572,7 +572,7 @@ export default function Portfolio() {
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/umuzi.webp"
+                          src="umuzi.webp"
                           alt="Umuzi logo"
                           width="56"
                           height="56"
@@ -622,7 +622,7 @@ export default function Portfolio() {
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white rounded-lg p-2 flex items-center justify-center flex-shrink-0">
                         <img
-                          src="/umuzi.webp"
+                          src="umuzi.webp"
                           alt="Umuzi logo"
                           width="56"
                           height="56"
