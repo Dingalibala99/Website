@@ -9,8 +9,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/Website',
-  assetPrefix: '/Website/',
+}
+
+// Only apply basePath for GitHub Pages deployment
+// Set DEPLOY_TO_GITHUB_PAGES=true in GitHub Actions to enable
+if (process.env.DEPLOY_TO_GITHUB_PAGES === 'true') {
+  nextConfig.basePath = '/Website'
+  nextConfig.assetPrefix = '/Website/'
 }
 
 export default nextConfig

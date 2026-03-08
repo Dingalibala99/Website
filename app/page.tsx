@@ -927,9 +927,9 @@ export default function Portfolio() {
                   How much does a website cost?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 dark:text-gray-400">
-                  Website costs depend on complexity. Simple websites start around R45,000-R95,000, while more complex
-                  solutions range from R180,000-R475,000+. I provide custom quotes after understanding your needs. We can
-                  discuss flexible payment plans.
+                  I'm reasonable and flexible with pricing! I believe in starting small and offering discounts to build
+                  great testimonials and long-term relationships. Let's discuss your project needs and budget—I'll work with you
+                  to find a solution that makes sense.
                 </AccordionContent>
               </AccordionItem>
 
@@ -958,8 +958,8 @@ export default function Portfolio() {
                   What about maintenance and updates?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 dark:text-gray-400">
-                  I offer maintenance packages starting at R3,600-R9,500/month depending on your needs. This includes updates,
-                  backups, security, and technical support.
+                  I'm reasonable with maintenance pricing too. After your project launches, we can discuss ongoing support
+                  options that fit your budget. This might include updates, backups, security, bug fixes, and technical support.
                 </AccordionContent>
               </AccordionItem>
 
@@ -1085,17 +1085,6 @@ export default function Portfolio() {
                     <li>✓ Available for immediate projects</li>
                   </ul>
                 </div>
-
-                <Button size="lg" className="w-full bg-white text-emerald-600 hover:bg-gray-100 font-semibold" asChild>
-                  <a
-                    href="https://drive.google.com/file/d/19p-JCFxCi0Hr0Vy_YgfUXxeOF_v1LHRo/view?usp=drive_link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Download className="mr-2" size={20} />
-                    Download My CV
-                  </a>
-                </Button>
               </div>
             </div>
           </motion.div>
