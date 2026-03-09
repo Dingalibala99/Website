@@ -39,10 +39,10 @@ export function FloatingCTA({ onCtaClick }: FloatingCTAProps) {
           <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
             <Button
               onClick={onCtaClick}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl px-6 py-6 rounded-full flex items-center gap-2 text-base font-semibold"
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 px-6 py-6 rounded-full flex items-center gap-2 text-base font-semibold transition-all duration-300 hover:scale-105"
             >
               <Phone size={20} />
-              Schedule Free Consultation
+              Free Consultation
             </Button>
           </motion.div>
         </motion.div>
